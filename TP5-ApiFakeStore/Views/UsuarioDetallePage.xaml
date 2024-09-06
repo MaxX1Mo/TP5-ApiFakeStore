@@ -1,0 +1,57 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TP5_ApiFakeStore.Views.UsuarioDetallePage"
+             xmlns:vm="clr-namespace:TP5_ApiFakeStore.ViewsModels"
+             xmlns:models="clr-namespace:TP5_ApiFakeStore.Models"
+             x:DataType="vm:UsuarioDetalleViewModel"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <VerticalStackLayout Margin="10">
+
+            <Grid ColumnDefinitions="Auto, *, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto" ColumnSpacing="10" RowSpacing="10">
+
+                <!-- Nombre -->
+                <Label Text="Nombre" Grid.Row="0" Grid.Column="0" VerticalOptions="Center"/>
+                <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+                    <Entry Text="{Binding Usuario.name.Firstname}" VerticalOptions="Center" IsReadOnly="True"/>
+                    <Entry Text="{Binding Usuario.name.Lastname}" VerticalOptions="Center" Margin="5,0,0,0" IsReadOnly="True"/>
+                </HorizontalStackLayout>
+
+                <!-- Email -->
+                <Label Text="Email" Grid.Row="1" Grid.Column="0" VerticalOptions="Center"/>
+                <Entry Text="{Binding Usuario.email}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" IsReadOnly="True"/>
+                
+                <!-- Username y Password -->
+                <Label Text="Username y password" Grid.Row="2" Grid.Column="0" VerticalOptions="Center"/>
+                <Entry Text="{Binding Usuario.username}" Grid.Row="2" Grid.Column="1" IsReadOnly="True"/>
+                <Entry Text="{Binding Usuario.password}" Grid.Row="2" Grid.Column="2" IsReadOnly="True"/>
+
+                <!-- Telefono -->
+                <Label Text="Telefono" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
+                <Entry Text="{Binding Usuario.phone}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" IsReadOnly="True"/>
+
+                <!-- Calle y Numero de Calle -->
+                <Label Text="Calle y número" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
+                <Entry Text="{Binding Usuario.address.Street}" Grid.Row="4" Grid.Column="1" IsReadOnly="True"/>
+                <Entry Text="{Binding Usuario.address.Number}" Grid.Row="4" Grid.Column="2" IsReadOnly="True"/>
+
+                <!-- Ciudad y Código Postal -->
+                <Label Text="Ciudad y código postal" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
+                <Entry Text="{Binding Usuario.address.City}" Grid.Row="5" Grid.Column="1" IsReadOnly="True"/>
+                <Entry Text="{Binding Usuario.address.Zipcode}" Grid.Row="5" Grid.Column="2" IsReadOnly="True"/>
+
+                <!-- Geolocalización: Latitud y Longitud -->
+                <Label Text="Geolocalización" Grid.Row="6" Grid.Column="0" VerticalOptions="Center"/>
+                <Entry Text="{Binding Usuario.address.Geolocation.Lat}" Grid.Row="6" Grid.Column="1" IsReadOnly="True"/>
+                <Entry Text="{Binding Usuario.address.Geolocation.Long}" Grid.Row="6" Grid.Column="2" IsReadOnly="True"/>
+
+            </Grid>
+
+            <!-- Botón para volver -->
+            <Button Text="Volver a Lista" Margin="0,20,0,0" Command="{Binding GoBackCommand}" HorizontalOptions="Center"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+
